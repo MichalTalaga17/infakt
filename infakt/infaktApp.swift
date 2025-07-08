@@ -10,6 +10,7 @@ import UserNotifications
 
 @main
 struct infaktApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     init() {
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
     }

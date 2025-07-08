@@ -9,7 +9,7 @@ class NotificationManager {
     
     func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            // Handle errors or granted state if needed
+            
         }
     }
     

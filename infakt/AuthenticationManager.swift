@@ -36,11 +36,12 @@ class AuthenticationManager: ObservableObject {
                         NotificationManager.shared.scheduleNotification(title: "infakt", body: "Weryfikacja FaceID zakończona sukcesem!")
                     } else {
                         print("❌ Uwierzytelnienie nie powiodło się: \(authError?.localizedDescription ?? "Brak opisu błędu")")
+                        NotificationManager.shared.requestAuthorization()
+                        NotificationManager.shared.scheduleNotification(title: "infakt", body: "Weryfikacja FaceID zakończona niepowodzeniem!")
                     }
                 }
             }
         } else {
-            // Brak wsparcia dla FaceID/TouchID - pomijamy blokadę
             DispatchQueue.main.async { [weak self] in
                 self?.isAuthenticating = false
                 self?.isAuthenticated = true
@@ -55,7 +56,6 @@ class AuthenticationManager: ObservableObject {
         switch newPhase {
         case .active:
             wasActiveRecently = true
-            // Opóźnij sprawdzenie uwierzytelnienia, aby uniknąć konfliktu z Keychain
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self = self else { return }
                 if !self.isAuthenticated {
@@ -64,20 +64,17 @@ class AuthenticationManager: ObservableObject {
                 }
             }
             
-            // Wyzeruj flagę po 2 sekundach
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
                 self?.wasActiveRecently = false
             }
             
         case .background:
-            // Tylko jeśli nie był aktywny niedawno (unikaj Keychain)
             if !wasActiveRecently {
                 isAuthenticated = false
                 showBlur = true
             }
             
         case .inactive:
-            // Nie resetuj uwierzytelnienia dla .inactive - może to być Keychain
             break
             
         @unknown default:
