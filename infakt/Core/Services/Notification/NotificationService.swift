@@ -1,15 +1,22 @@
+//
+//  NotificationService.swift
+//  infakt
+//
+//  Created by Michał Talaga on 10/07/2025.
+//
+
+
 import UserNotifications
 import Foundation
 
-
-class NotificationManager {
-    static let shared = NotificationManager()
+class NotificationService: NotificationServiceProtocol {
     
-    private init() {}
-    
-    func requestAuthorization() {
+    // MARK: - NotificationServiceProtocol
+    func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            
+            DispatchQueue.main.async {
+                completion(granted, error)
+            }
         }
     }
     
@@ -22,6 +29,10 @@ class NotificationManager {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Failed to schedule notification: \(error)")
+            }
+        }
     }
 }
