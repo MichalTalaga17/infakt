@@ -4,6 +4,10 @@
 
 Aplikacja iOS dla inFakt zbudowana w oparciu o WebView, integrująca natywne funkcje systemu iOS z funkcjonalnością webową. Projekt został stworzony jako rozwiązanie zadania rekrutacyjnego na stanowisko iOS Developer.
 
+
+https://github.com/user-attachments/assets/a17556f5-97ce-4b55-aa95-6f86afcb8e38
+
+
 ## Główne Funkcje
 
 ### Podstawowe Wymagania
