@@ -22,9 +22,11 @@ https://github.com/user-attachments/assets/a17556f5-97ce-4b55-aa95-6f86afcb8e38
 
 ### Natywne Funkcje iOS
 - **Push Notifications**: Pełne wsparcie dla powiadomień push (w demo wysyłene z Apple Developer Console)
+- **Integracja z Kamerą**: Integracja z kamerą umożliwiająca np. przesyłanie plików
 - **Haptic Feedback**: Taktyczne sprzężenie zwrotne dla lepszego UX
 - **Network Monitoring**: Monitorowanie stanu połączenia internetowego
 - **Offline Detection**: Automatyczne wykrywanie i obsługa trybu offline
+
 
 ## Stack Technologiczny
 
