@@ -39,6 +39,7 @@ https://github.com/user-attachments/assets/a17556f5-97ce-4b55-aa95-6f86afcb8e38
 ### Natywne API iOS
 - **LocalAuthentication** - Face ID / Touch ID
 - **UserNotifications** - Local notifications i Push notifications
+- **Integracja z Kamerą**
 - **Network** - Monitorowanie połączenia z Internetem
 - **Combine** - Reaktywne programowanie
 
@@ -69,26 +70,25 @@ inFakt/
 ### Interakcje
 - **Pull-to-Refresh**: Odświeżanie zawartości
 - **Swipe Navigation**: Nawigacja w przód/tył
-- **Double-tap Refresh**: Szybkie odświeżanie
 - **Haptic Feedback**: Haptyczne potwierdzenia
 
 ## Bezpieczeństwo
 
 ### Autoryzacja Biometryczna
 - Automatyczna autoryzacja przy uruchomieniu
-- obsługa błędów dla urządzeń bez biometrii
+- Obsługa błędów dla urządzeń bez biometrii
 
 ## Monitorowanie i Diagnostyka
 
 ### Network Monitoring
-- Real-time monitoring połączenia
+- Monitorowanie statusu połączenia z Internetem
 - Automatyczne odświeżenie po odzyskaniu połączenia z internetem
 - Wykrywanie utraty połączenia
 
 ## Problemy i ograniczenia
 
 - Konieczność pracy na testowych Push Notifications z uwagi na brak dostępu do backendu
-- Niektóre ze styli strony internetowaej nie są dopasowane do aplikacji mobilnej, np. utrzymanie dolnej belki w dole ekranu
+- Niektóre ze styli strony internetowej nie są dopasowane do aplikacji mobilnej, np. utrzymanie dolnej belki w dole ekranu
 
 
 
